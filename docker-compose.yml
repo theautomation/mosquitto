@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+
+  prd-mosquitto-app:
+    image: eclipse-mosquitto:latest
+    container_name: prd-mosquitto-app
+    restart: always
+    env_file: prd-mosquitto-app.env
+    volumes:
+      - ./config/:/mosquitto/config/
+      - ./log/:/mosquitto/log
+      - ./data/:/mosquitto/data
+    ports:
+      - 1883:1883
+    networks:
+      home-services:
+
+# NETWORKS
+networks:
+
+  home-services:
+    driver: bridge
+    name: home-services
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

@@ -1,0 +1,3 @@
+prd-mosquitto-app.env
+/data/
+**/*.log
