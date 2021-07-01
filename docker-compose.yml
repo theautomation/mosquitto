@@ -2,7 +2,7 @@ version: '3.8'
 services:
 
   prd-mosquitto-app:
-    image: eclipse-mosquitto:latest
+    image: docker-registry.theautomation.nl/coen/prd-mosquitto-app:latest
     container_name: prd-mosquitto-app
     restart: always
     env_file: prd-mosquitto-app.env
