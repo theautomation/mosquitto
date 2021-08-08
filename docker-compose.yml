@@ -8,9 +8,9 @@ services:
     restart: always
     env_file: prd-mosquitto-app.env
     volumes:
-      - ./config/:/mosquitto/config/
-      - ./log/:/mosquitto/log
-      - ./data/:/mosquitto/data
+      - ./config:/mosquitto/config
+      - ./log:/mosquitto/log
+      - ./data:/mosquitto/data
     ports:
       - 1883:1883
     networks:
