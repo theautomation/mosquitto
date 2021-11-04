@@ -1,7 +1,6 @@
 ---
 version: '3.8'
 services:
-
   prd-mosquitto-app:
     image: docker-registry.theautomation.nl/coen/prd-mosquitto-app:latest
     container_name: prd-mosquitto-app
@@ -12,16 +11,14 @@ services:
       - ./log:/mosquitto/log
       - ./data:/mosquitto/data
     ports:
-      - 1883:1883
+      - 1883:1883 #exposed for home assistant
     networks:
-      home-services:
+      - mosquitto
 
-# NETWORKS
 networks:
-
-  home-services:
+  mosquitto:
+    name: mosquitto
     driver: bridge
-    name: home-services
     ipam:
       config:
-        - subnet: 172.20.0.0/16
+        - subnet: 172.33.0.0/16
